@@ -7,10 +7,10 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2019/20
 
 ## Tematika
 
-Izbrali si boste temo, s katero se bo vaš projekt ukvarjal.
-Tukaj boste napisali, kje ste dobili podatke, ter kakšen je vaš cilj.
 Pri tem projektu bom analiziral podatke o turizmu v Evropi. Analiziral bom število potovanj prebivalcev posameznih držav in kam najpogosteje potujejo. Predstavil bom tudi število nočitev in sestavo turistov v Evropi in sestavo primerjal z nekaterimi državami (npr. Nemčija, Slovenija, Španija, Francija) ter skušal priti do kakšnih zaključkov (več turistov iz držav s podobnim jezikom, iz bližnjih držav, iz nekdanjih kolonij,...). Ogledal si bom tudi, koliko porabijo turisti posameznih držav in to skušal povezati z višino plač v tej državi. Predstavil bom tudi zasedenost hotelov v Evropi in nekaterih posameznih državah ter skušal pojasniti morebiten presežek/pomankanje infrastrukture. Kot zadnje bom analiziral še zaposlenost v posameznih turističnih dejavnostih nekaterih držav in Evrope kot celote.
+
 Cilj projekta je poiskati države z dobrim modelom turizma, po katerih bi se morale zgledovati tudi ostale, poleg tega pa bom skušal najti povezave med turističnimi dejavnostmi nekaterih držav ter različnimi dejavniki, ki lahko vplivajo na turizem (plače, razvitost, lega države, velikost, jezik, turistične znamenitosti,...)
+
 Viri: za projekt bom uporabil podatke iz Eurostata (https://ec.europa.eu/eurostat/data/database)
 
 ## Program
