@@ -1,0 +1,62 @@
+"DATASET: Number of trips by country / world region of destination [tour_dem_ttw]"
+
+"LAST UPDATE: 12.11.19 12:26:13"
+
+"EXTRACTION DATE: 06.12.19 18:58:35"
+
+"SOURCE OF DATA: Eurostat"
+
+"TIME"
+"2010"
+"2011"
+"2012"
+"2013"
+"2014"
+"2015"
+"2016"
+"2017"
+"2018"
+
+"PARTNER"
+"Europe"
+"Germany (until 1990 former territory of the FRG)"
+"Croatia"
+"Italy"
+"Slovenia"
+"All countries of the world"
+
+"UNIT"
+"Number"
+
+"PURPOSE"
+"Total"
+"Personal reasons"
+"Professional, business"
+
+"DURATION"
+"1 night or over"
+"From 1 to 3 nights"
+"4 nights or over"
+
+"GEO"
+"Croatia"
+"Slovenia"
+
+"No footnotes available"
+
+"Available flags:"
+"b","break in time series"
+"c","confidential"
+"d","definition differs, see metadata"
+"e","estimated"
+"f","forecast"
+"n","not significant"
+"p","provisional"
+"r","revised"
+"s","Eurostat estimate"
+"u","low reliability"
+"z","not applicable"
+
+"Special value:"
+":","not available"
+

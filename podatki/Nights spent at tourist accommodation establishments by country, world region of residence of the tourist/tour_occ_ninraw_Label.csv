@@ -1,0 +1,63 @@
+"DATASET: Nights spent at tourist accommodation establishments by country/world region of residence of the tourist [tour_occ_ninraw]"
+
+"LAST UPDATE: 03.12.19 14:46:39"
+
+"EXTRACTION DATE: 06.12.19 18:58:14"
+
+"SOURCE OF DATA: Eurostat"
+
+"TIME"
+"2010"
+"2011"
+"2012"
+"2013"
+"2014"
+"2015"
+"2016"
+"2017"
+"2018"
+
+"PARTNER"
+"Europe"
+"Germany (until 1990 former territory of the FRG)"
+"Spain"
+"France"
+"Croatia"
+"Italy"
+"Austria"
+"Slovenia"
+"United Kingdom"
+"America"
+"Asia"
+"All countries of the world"
+
+"UNIT"
+"Number"
+
+"NACE_R2"
+"Hotels; holiday and other short-stay accommodation; camping grounds, recreational vehicle parks and trailer parks"
+"Hotels and similar accommodation"
+"Camping grounds, recreational vehicle parks and trailer parks"
+
+"GEO"
+"Croatia"
+"Slovenia"
+
+"No footnotes available"
+
+"Available flags:"
+"b","break in time series"
+"c","confidential"
+"d","definition differs, see metadata"
+"e","estimated"
+"f","forecast"
+"n","not significant"
+"p","provisional"
+"r","revised"
+"s","Eurostat estimate"
+"u","low reliability"
+"z","not applicable"
+
+"Special value:"
+":","not available"
+
