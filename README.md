@@ -7,8 +7,15 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2019/20
 
 ## Tematika
 
-Izbrali si boste temo, s katero se bo vaš projekt ukvarjal.
-Tukaj boste napisali, kje ste dobili podatke, ter kakšen je vaš cilj.
+Pri tem projektu bom analiziral podatke o turizmu v Sloveniji in na Hrvaškem. Primerjal bom predvsem, iz katerih držav prihaja največ turistov v omenjenih državah, ter kam največkrat odhajajo državljani Slovenije in Hrvaške. Obdobje, ki ga bom obravnaval je zadnje desetletje (2010-2019), saj je večina podatkov pred letom 2010 pomanjlkjivih.
+
+Za vsako državo bom uporabil naslednje tabele:
+* sestava turistov glede na državo oz. svetovno regijo, iz katere prihajajo
+* število nočitev in vrsta prebivališča (hotel, kamp,...)
+* turistične destinacije prebivalcev te države
+* dolžina in namen potovanja
+
+Viri: za projekt bom uporabil podatke iz Eurostata (https://ec.europa.eu/eurostat/data/database)
 
 ## Program
 
