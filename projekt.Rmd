@@ -1,6 +1,6 @@
 ---
 title: "Poročilo pri predmetu Analiza podatkov s programom R"
-author: "Študent FMF"
+author: "Gašper Pust"
 output:
   html_document: default
   pdf_document:
@@ -26,9 +26,15 @@ source("lib/rstudio.r", encoding="UTF-8")
 
 # Izbira teme
 
-Za vzorec bomo prikazali nekaj podatkov o slovenskih občinah.
+Pri tem projektu bom analiziral podatke o turizmu v Sloveniji in na Hrvaškem. Primerjal bom predvsem, iz katerih držav prihaja največ turistov v omenjenih državah, ter kam največkrat odhajajo državljani Slovenije in Hrvaške. Obdobje, ki ga bom obravnaval je zadnje desetletje (2010-2019), saj je večina podatkov pred letom 2010 pomanjlkjivih.
 
-![](slike/grb.png)
+Za vsako državo bom uporabil naslednje tabele:
+* sestava turistov glede na državo oz. svetovno regijo, iz katere prihajajo
+* število nočitev in vrsta prebivališča (hotel, kamp,...)
+* turistične destinacije prebivalcev te države
+* dolžina in namen potovanja
+
+Viri: za projekt bom uporabil podatke iz Eurostata (https://ec.europa.eu/eurostat/data/database)
 
 ***
 
