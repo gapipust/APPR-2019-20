@@ -1,5 +1,5 @@
 ---
-title: "Poročilo pri predmetu Analiza podatkov s programom R"
+title: "Analiza slovenskega in hrvaškega turizma"
 author: "Gašper Pust"
 output:
   html_document: default
