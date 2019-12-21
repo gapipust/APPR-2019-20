@@ -42,6 +42,7 @@ Viri: za projekt bom uporabil podatke iz Eurostata (https://ec.europa.eu/eurosta
 
 ```{r uvoz, echo=FALSE, message=FALSE}
 source("uvoz/uvoz.r", encoding="UTF-8")
+source("uvoz/projekt_uvoz.r")
 ```
 
 Uvozil sem podatke o turizmu Slovenije in Hrvaške v obliki CSV z Eurostata. Podatke imam v dveh razpredelnicah v obliki *tidy data*.
