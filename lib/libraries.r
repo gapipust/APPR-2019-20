@@ -3,6 +3,7 @@ library(rvest)
 library(gsubfn)
 library(tidyr)
 library(shiny)
+library(readr)
 
 options(gsubfn.engine="R")
 

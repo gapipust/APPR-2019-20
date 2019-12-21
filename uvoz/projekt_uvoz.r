@@ -1,6 +1,5 @@
 #2. faza: uvoz podatkov:
 
-library(readr)
 library(tidyr)
 
 uvozi.nocitve <- function() {
