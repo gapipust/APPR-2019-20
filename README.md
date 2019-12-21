@@ -22,7 +22,7 @@ Viri: za projekt bom uporabil podatke iz Eurostata (https://ec.europa.eu/eurosta
 Glavni program in poročilo se nahajata v datoteki `projekt.Rmd`.
 Ko ga prevedemo, se izvedejo programi, ki ustrezajo drugi, tretji in četrti fazi projekta:
 
-* obdelava, uvoz in čiščenje podatkov: `uvoz/uvoz.r`
+* obdelava, uvoz in čiščenje podatkov: `uvoz/projekt_uvoz.r`
 * analiza in vizualizacija podatkov: `vizualizacija/vizualizacija.r`
 * napredna analiza podatkov: `analiza/analiza.r`
 
