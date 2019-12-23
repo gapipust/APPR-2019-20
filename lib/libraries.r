@@ -4,6 +4,7 @@ library(gsubfn)
 library(tidyr)
 library(shiny)
 library(readr)
+library(dplyr)
 
 options(gsubfn.engine="R")
 
