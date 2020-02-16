@@ -34,6 +34,8 @@ Za vsako državo bom uporabil naslednje tabele:
 * turistične destinacije prebivalcev te države
 * dolžina in namen potovanja
 
+Za zemljevid bom uporabil podatke o nočitvah v posameznih slovenskih občinah.
+
 Viri: za projekt bom uporabil podatke iz Eurostata (https://ec.europa.eu/eurostat/data/database)
 
 ***
@@ -50,13 +52,13 @@ Uvozil sem podatke o turizmu Slovenije in Hrvaške v obliki CSV z Eurostata. Pod
 1. `podatki_o_nocitvah` - podatki o nočitvah za vsako od omenjenih držav
   - `leto` - spremenljivka: leto meritve (2010-2018),
   - `izvor_turistov` - spremenljivka: od kje prihajajo turisti (Evropa, Nemčija, Španija, Francija, Hrvaška, Italija, Avstrija, Slovenija, Združeno Kraljestvo, Amerika, Azija, vse države sveta),
-  - `prebivalisce` - spremenljivka: kje prebivajo turisti (hoteli in ostale kratkoročne akomodacije, kampi in prikoličarska naselja, skupno),
+  - `prebivalisce` - spremenljivka: kje prebivajo turisti (hoteli in ostale kratkoročne akomodacije, kampi in prikoličarska naselja),
   - `vrednost` - meritev: število turistov v ustrezni kategoriji.
 
 2. `podatki_o_potovanjih` - podatki o potovanjih prebivalcev vsake od omenjenih držav
   - `leto` - spremenljivka: leto meritve (2010-2018),
   - `destinacija` - spremenljivka: kam so potovali (Evropa, Nemčija, Hrvaška, Italija, Slovenija, vse države sveta),
-  - `namen` - spremenljivka: namen potovanja (osebni razlogi, poslovno, skupno),
+  - `namen` - spremenljivka: namen potovanja (osebni razlogi, poslovno),
   - `dolzina` - spremenljivka: število nočitev (1, 1-3, 4 ali več),
   - `vrednost` - meritev: število potovanj v ustrezni kategoriji.
 
