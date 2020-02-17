@@ -9,10 +9,6 @@ levels(zemljevid$OB_UIME) <- levels(zemljevid$OB_UIME) %>% { gsub("-", " - ", .)
 zemljevid$OB_UIME <- factor(zemljevid$OB_UIME, levels=levels(obcine$obcina))
 zemljevid <- fortify(zemljevid)
 
-# Izračunamo povprečno velikost družine
-#povprecja <- druzine %>% group_by(obcina) %>%
-#  summarise(povprecje=sum(velikost.druzine * stevilo.druzin) / sum(stevilo.druzin))
-
 #ločil bom podatke za Slovenijo in Hrvaško
 slo_nocitve <- nocitve %>% filter(drzava == "Slovenia")
 slo_nocitve$drzava <- NULL

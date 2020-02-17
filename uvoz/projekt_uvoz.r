@@ -28,7 +28,7 @@ potovanja <- potovanja %>% filter(namen != "Total")
 
 uvozi.obcine <- function() {
   podatki_o_obcinah <- read.csv('podatki/obcine.csv',col.names=c('obcina', 'izvor', 'stevilo.nocitev'),
-                                skip=1, na='z')
+                                skip=1, na=c('z', '-'))
   podatki_o_obcinah$izvor <- NULL
   
   return(podatki_o_obcinah)

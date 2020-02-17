@@ -28,11 +28,7 @@ source("lib/rstudio.r", encoding="UTF-8")
 
 Pri tem projektu bom analiziral podatke o turizmu v Sloveniji in na Hrvaškem. Primerjal bom predvsem, iz katerih držav prihaja največ turistov v omenjenih državah, ter kam največkrat odhajajo državljani Slovenije in Hrvaške. Obdobje, ki ga bom obravnaval je zadnje desetletje (2010-2019), saj je večina podatkov pred letom 2010 pomanjlkjivih.
 
-Za vsako državo bom uporabil naslednje tabele:
-* sestava turistov glede na državo oz. svetovno regijo, iz katere prihajajo
-* število nočitev in vrsta prebivališča (hotel, kamp,...)
-* turistične destinacije prebivalcev te države
-* dolžina in namen potovanja
+Za vsako državo bom uporabil tabele o sestavi turistov glede na državo oz. svetovno regijo, iz katere prihajajo, številu nočitev in vrsti prebivališča (hotel, kamp,...), turističnih destinacijah prebivalcev te države, dolžini in namenu potovanja
 
 Za zemljevid bom uporabil podatke o nočitvah v posameznih slovenskih občinah.
 
@@ -43,8 +39,7 @@ Viri: za projekt bom uporabil podatke iz Eurostat-a in SiStat-a.
 # Obdelava, uvoz in čiščenje podatkov
 
 ```{r uvoz, echo=FALSE, message=FALSE}
-source("uvoz/uvoz.r", encoding="UTF-8")
-source("uvoz/projekt_uvoz.r")
+source("uvoz/projekt_uvoz.r", encoding="UTF-8")
 ```
 
 Uvozil sem podatke o turizmu Slovenije in Hrvaške v obliki CSV z Eurostata. Podatke imam v dveh razpredelnicah v obliki *tidy data*.
@@ -73,27 +68,19 @@ Uvozil sem podatke o turizmu Slovenije in Hrvaške v obliki CSV z Eurostata. Pod
 ```{r vizualizacija, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
 source("vizualizacija/projekt_vizualizacija.r", encoding="UTF-8")
 ```
+```{r analiza, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
+source("analiza/analiza.r", encoding="UTF-8")
+```
 
-Spodnji zemljevid prikazuje povprečno velikost družine za vsako občino.
+Grafi in tabele:
+
+Spodnji zemljevid prikazuje število nočitev v posameznih občinah v letu 2018:
 
 ```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zemljevid nočitev'}
 ggplot() + geom_polygon(data=left_join(zemljevid, obcine, by=c("OB_UIME"="obcina")),
                         aes(x=long, y=lat, group=group, fill=stevilo.nocitev)) +
-  ggtitle("Število nočitev") + xlab("") + ylab("") +
+  ggtitle("Število nočitev po slovenskih občinah") + xlab("") + ylab("") +
   guides(fill=guide_colorbar(title="Število nočitev"))
 ```
 
 ***
-
-# Napredna analiza podatkov
-
-
-Spodnji graf prikazuje povezavo med številom naselij in površino občine.
-
-
-
-***
-
-```{r shiny, echo=FALSE}
-shinyAppDir("shiny", options=list(width="100%", height=600))
-```
