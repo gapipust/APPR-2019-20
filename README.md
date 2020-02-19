@@ -23,7 +23,7 @@ Glavni program in poročilo se nahajata v datoteki `projekt.Rmd`.
 Ko ga prevedemo, se izvedejo programi, ki ustrezajo drugi, tretji in četrti fazi projekta:
 
 * obdelava, uvoz in čiščenje podatkov: `uvoz/projekt_uvoz.r`
-* analiza in vizualizacija podatkov: `vizualizacija/vizualizacija.r`
+* analiza in vizualizacija podatkov: `vizualizacija/projekt_vizualizacija.r`
 * napredna analiza podatkov: `analiza/analiza.r`
 
 Vnaprej pripravljene funkcije se nahajajo v datotekah v mapi `lib/`.
