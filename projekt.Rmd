@@ -72,7 +72,17 @@ source("vizualizacija/projekt_vizualizacija.r", encoding="UTF-8")
 source("analiza/analiza.r", encoding="UTF-8")
 ```
 
-Grafi in tabele:
+Spodnji grafi prikazujejo analizo različnih kategorij nočitev in potovanj za Slovenijo in Hrvaško v obdobju 2010 do 2018, pri čemer so podatki, ki niso bili na voljo, upoštevani kot 0. V prvih 4 grafih modra barva predstavlja Slovenijo, rdeča pa Hrvaško.
+```{r grafi, echo=FALSE, fig.align='center', warning=FALSE}
+print(graf1)
+print(graf2)
+print(graf3)
+print(graf4)
+print(graf5)
+print(graf6)
+print(graf7)
+print(graf8)
+```
 
 Spodnji zemljevid prikazuje število nočitev v posameznih občinah v letu 2018:
 
@@ -82,5 +92,4 @@ ggplot() + geom_polygon(data=left_join(zemljevid, obcine, by=c("OB_UIME"="obcina
   ggtitle("Število nočitev po slovenskih občinah") + xlab("") + ylab("") +
   guides(fill=guide_colorbar(title="Število nočitev"))
 ```
-
 ***
