@@ -28,7 +28,7 @@ source("lib/rstudio.r", encoding="UTF-8")
 
 Pri tem projektu bom analiziral podatke o turizmu v Sloveniji in na Hrvaškem. Primerjal bom predvsem, iz katerih držav prihaja največ turistov v omenjenih državah, ter kam največkrat odhajajo državljani Slovenije in Hrvaške. Obdobje, ki ga bom obravnaval je zadnje desetletje (2010-2019), saj je večina podatkov pred letom 2010 pomanjlkjivih.
 
-Za vsako državo bom uporabil tabele o sestavi turistov glede na državo oz. svetovno regijo, iz katere prihajajo, številu nočitev in vrsti prebivališča (hotel, kamp,...), turističnih destinacijah prebivalcev te države, dolžini in namenu potovanja
+Za vsako državo bom uporabil tabele o sestavi turistov glede na državo oz. svetovno regijo, iz katere prihajajo, številu nočitev in vrsti prebivališča (hotel, kamp) ter dolžini in namenu potovanja prebivalcev posamezne države.
 
 Za zemljevid bom uporabil podatke o nočitvah v posameznih slovenskih občinah.
 
@@ -72,19 +72,48 @@ source("vizualizacija/projekt_vizualizacija.r", encoding="UTF-8")
 source("analiza/analiza.r", encoding="UTF-8")
 ```
 
-Spodnji grafi prikazujejo analizo različnih kategorij nočitev in potovanj za Slovenijo in Hrvaško v obdobju 2010 do 2018, pri čemer so podatki, ki niso bili na voljo, upoštevani kot 0. V prvih 4 grafih modra barva predstavlja Slovenijo, rdeča pa Hrvaško.
-```{r grafi, echo=FALSE, fig.align='center', warning=FALSE}
+Spodnji grafi prikazujejo analizo različnih kategorij nočitev in potovanj za Slovenijo in Hrvaško v obdobju 2010 do 2018, pri čemer so podatki, ki niso bili na voljo, upoštevani kot 0.
+
+```{r grafi_osnovni, echo=FALSE, fig.align='center', warning=FALSE}
 print(graf1)
 print(graf2)
+```
+
+Zgornja grafa predstavljata število nočitev oz. potovanj vsake od omenjenih držav. Pričakovano v obeh kategorijah prevladuje Hrvaška, saj je tako večja po površini in ima tako več turističnih destinacij ter prenočišč, ima pa tudi več prebivalcev, zato tudi posledično več potovanj. Predvsem pri nočitvah je viden velik razkorak med Slovenijo in Hrvaško, vendar pa je v obeh državah število nočitev v porastu (zadnji podatek za Slovenijo manjka, zato je njegova vrednost nastavljena na 0). Graf vseh potovanj pa je veliko bolj zanimiv, saj je v obdobju od 2013 do 2016 število potovanj Hrvatov močno padlo (celo pod število slovenskih potovanj), od takrat naprej pa je to število praktično enako v obeh državah.
+
+```{r grafi_prilagojeni, echo=FALSE, fig.align='center', warning=FALSE}
 print(graf3)
 print(graf4)
+```
+
+Da bi eliminiral učinek večje površine in več prebivalstva Hrvaške, sem delil število nočitev s površino in število potovanj s prebivalstvom pripadajoče države. Kot je razvidno iz zgornjih dveh grafov, je število nočitev glede na površino na Hrvaškem še vedno veliko večje kot v Sloveniji, kar je logično, saj imajo predvsem ob morju v poletni sezoni res veliko prenočitev, ki prevladujejo nad nočitvami v Sloveniji. Glede na prvotni graf potovanj pa ni presenetljivo, da je število potovanj na prebivalca večje v Sloveniji in sicer je razlika skoraj 5 potovanj na prebivalca (na leto), kar je zelo veliko.
+
+```{r grafi_nocitve_podrobno, echo=FALSE, fig.align='center', warning=FALSE}
 print(graf5)
+print(graf5a)
 print(graf6)
+print(graf6a)
+```
+
+Iz zgornjih grafov vidimo, da večina gostov, ki nočuje v Sloveniji in na Hrvaškem prebiva v hotelih in podobnih prebivališčih, manj pa v kampih. Prav tako vidimo, da veliko večino gostov predstavljajo Evropejci. V Sloveniji je glede na podatke največ slovenskih turistov, ki jim sledijo Italijani, Avstrijci in Nemci, medtem ko je na Hrvaškem daleč največ Nemcov, ki jim sledijo Slovenci (v kampih), Hrvati in Avstrijci.
+
+```{r grafi_potovanja_podrobno, echo=FALSE, fig.align='center', warning=FALSE}
 print(graf7)
 print(graf8)
 ```
 
-Spodnji zemljevid prikazuje število nočitev v posameznih občinah v letu 2018:
+V zadnji kategoriji grafov vidimo podatke o potovanjih, njihovem namenu in dolžini v posamezni državi. Slovenci največkrat potujejo za 1 noč in sicer iz osebnih razlogov, sledijo potovanja od 1 do 3 noči, nato pa 4 noči ali več, oboje iz osebnih razlogov. Najmanj je pričakovano daljših poslovnih potovanj. Poslovna potovanja se skozi leta tudi manj spreminjajo kot osebna, ki bolj nihajo. na Hrvaškem je sestava potovanj praktično enaka, je pa zanimivo, da je v letu 2015 število osebnih daljših potovanj preseglo število osebnih potovanj z dolžino od 1 do 3 noči.
+
+Na podlagi podatkov sem analiziral, kaj lahko pričakujemo za prihodnost:
+
+```{r grafi_napovedi, echo=FALSE, fig.align='center', warning=FALSE}
+print(graf9)
+print(graf10)
+```
+
+Iz zgornjih grafov za prihodnost je razvidno, da bo število nočitev na Hrvaškem raslo veliko hitreje kot v Sloveniji, zato bo med državama nastajal vedno večji razkorak v tej kategoriji. Glede potovanj pa je situacija ravno obratna, saj je graf Slovenije veliko strmejši od grafa Hrvaške in kljub manjšemu številu prebivalcev lahko v bližnji prihodnosti pričakujemo, da bomo Slovenci dosegli celo večje število potovanj od Hrvatov.
+
+Na spodnjem zemljevidu sem prikazal število nočitev v posameznih občinah v letu 2018:
 
 ```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zemljevid nočitev'}
 ggplot() + geom_polygon(data=left_join(zemljevid, obcine, by=c("OB_UIME"="obcina")),

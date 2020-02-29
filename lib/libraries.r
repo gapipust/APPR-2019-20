@@ -5,6 +5,9 @@ library(tidyr)
 library(shiny)
 library(readr)
 library(dplyr)
+library(ggplot2)
+library(GGally)
+library(mgcv)
 
 options(gsubfn.engine="R")
 

@@ -18,6 +18,8 @@ slo_potovanja <- potovanja %>% filter(drzava == "Slovenia")
 slo_potovanja$drzava <- NULL
 hrv_potovanja <- potovanja %>% filter(drzava == "Croatia")
 hrv_potovanja$drzava <- NULL
+slo_nocitve_brez <- slo_nocitve %>% filter(izvor_turistov != "Evropa", izvor_turistov != "vse drzave sveta")
+hrv_nocitve_brez <- hrv_nocitve %>% filter(izvor_turistov != "Evropa", izvor_turistov != "vse drzave sveta")
 
 #vsa potovanja
 vsa_slo_potovanja <- slo_potovanja %>% group_by(leto) %>% summarise(stevilo = sum(vrednost, na.rm = TRUE))
