@@ -28,7 +28,7 @@ source("lib/rstudio.r", encoding="UTF-8")
 
 Pri tem projektu bom analiziral podatke o turizmu v Sloveniji in na Hrvaškem. Primerjal bom predvsem, iz katerih držav prihaja največ turistov v omenjenih državah, ter kam največkrat odhajajo državljani Slovenije in Hrvaške. Obdobje, ki ga bom obravnaval je zadnje desetletje (2010-2019), saj je večina podatkov pred letom 2010 pomanjlkjivih.
 
-Za vsako državo bom uporabil tabele o sestavi turistov glede na državo oz. svetovno regijo, iz katere prihajajo, številu nočitev in vrsti prebivališča (hotel, kamp) ter dolžini in namenu potovanja prebivalcev posamezne države.
+Za vsako državo bom uporabil tabele o sestavi turistov glede na državo oz. svetovno regijo, iz katere prihajajo, številu nočitev in vrsti prebivališča (hotel, kamp) ter v primeru potovanj podatke o dolžini in namenu potovanja prebivalcev posamezne države.
 
 Za zemljevid bom uporabil podatke o nočitvah v posameznih slovenskih občinah.
 
@@ -39,26 +39,27 @@ Viri: za projekt bom uporabil podatke iz Eurostat-a in SiStat-a.
 # Obdelava, uvoz in čiščenje podatkov
 
 ```{r uvoz, echo=FALSE, message=FALSE}
+#uvoz potrebnih datotek v obliki tidy data
 source("uvoz/projekt_uvoz.r", encoding="UTF-8")
 ```
 
-Uvozil sem podatke o turizmu Slovenije in Hrvaške v obliki CSV z Eurostata. Podatke imam v dveh razpredelnicah v obliki *tidy data*.
+Uvozil sem podatke o turizmu v Sloveniji in na Hrvaškem v obliki CSV z Eurostata. Podatke imam v dveh razpredelnicah v obliki *tidy data*.
 
 1. `podatki_o_nocitvah` - podatki o nočitvah za vsako od omenjenih držav
   - `leto` - spremenljivka: leto meritve (2010-2018),
   - `izvor_turistov` - spremenljivka: od kje prihajajo turisti (Evropa, Nemčija, Španija, Francija, Hrvaška, Italija, Avstrija, Slovenija, Združeno Kraljestvo, Amerika, Azija, vse države sveta),
-  - `prebivalisce` - spremenljivka: kje prebivajo turisti (hoteli in ostale kratkoročne akomodacije, kampi in prikoličarska naselja),
+  - `prebivalisce` - spremenljivka: kje prebivajo turisti (hoteli in podobne namestitve, kampi in prikoličarska naselja),
   - `vrednost` - meritev: število turistov v ustrezni kategoriji.
 
 2. `podatki_o_potovanjih` - podatki o potovanjih prebivalcev vsake od omenjenih držav
   - `leto` - spremenljivka: leto meritve (2010-2018),
   - `destinacija` - spremenljivka: kam so potovali (Evropa, Nemčija, Hrvaška, Italija, Slovenija, vse države sveta),
-  - `namen` - spremenljivka: namen potovanja (osebni razlogi, poslovno),
-  - `dolzina` - spremenljivka: število nočitev (1, 1-3, 4 ali več),
+  - `namen` - spremenljivka: namen potovanja (osebni razlogi, poslovni razlogi),
+  - `dolzina` - spremenljivka: število nočitev (1 ali več noči, 1 do 3 noči, 4 ali več noči),
   - `vrednost` - meritev: število potovanj v ustrezni kategoriji.
   
 3. `podatki_o_obcinah` - podatki o nočitvah v posameznih slovenskih občinah
-  - `obcina` - spremenljivka: občina,
+  - `obcina` - spremenljivka: občina, v kateri gledamo število nočitev,
   - `stevilo.nocitev` - meritev: število nočitev v posamezni občini
 
 ***
@@ -66,15 +67,19 @@ Uvozil sem podatke o turizmu Slovenije in Hrvaške v obliki CSV z Eurostata. Pod
 # Analiza in vizualizacija podatkov
 
 ```{r vizualizacija, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
+#uvoz podtabel, potrebnih za analizo
 source("vizualizacija/projekt_vizualizacija.r", encoding="UTF-8")
 ```
+
 ```{r analiza, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
+#uvoz grafov in rezultatov
 source("analiza/analiza.r", encoding="UTF-8")
 ```
 
 Spodnji grafi prikazujejo analizo različnih kategorij nočitev in potovanj za Slovenijo in Hrvaško v obdobju 2010 do 2018, pri čemer so podatki, ki niso bili na voljo, upoštevani kot 0.
 
 ```{r grafi_osnovni, echo=FALSE, fig.align='center', warning=FALSE}
+#grafa nočitev in potovanj v obeh državah
 print(graf1)
 print(graf2)
 ```
@@ -82,6 +87,7 @@ print(graf2)
 Zgornja grafa predstavljata število nočitev oz. potovanj vsake od omenjenih držav. Pričakovano v obeh kategorijah prevladuje Hrvaška, saj je tako večja po površini in ima tako več turističnih destinacij ter prenočišč, ima pa tudi več prebivalcev, zato tudi posledično več potovanj. Predvsem pri nočitvah je viden velik razkorak med Slovenijo in Hrvaško, vendar pa je v obeh državah število nočitev v porastu (zadnji podatek za Slovenijo manjka, zato je njegova vrednost nastavljena na 0). Graf vseh potovanj pa je veliko bolj zanimiv, saj je v obdobju od 2013 do 2016 število potovanj Hrvatov močno padlo (celo pod število slovenskih potovanj), od takrat naprej pa je to število praktično enako v obeh državah.
 
 ```{r grafi_prilagojeni, echo=FALSE, fig.align='center', warning=FALSE}
+#grafa nočitev na površino in potovanj na prebivalca v obeh državah
 print(graf3)
 print(graf4)
 ```
@@ -89,6 +95,7 @@ print(graf4)
 Da bi eliminiral učinek večje površine in več prebivalstva Hrvaške, sem delil število nočitev s površino in število potovanj s prebivalstvom pripadajoče države. Kot je razvidno iz zgornjih dveh grafov, je število nočitev glede na površino na Hrvaškem še vedno veliko večje kot v Sloveniji, kar je logično, saj imajo predvsem ob morju v poletni sezoni res veliko prenočitev, ki prevladujejo nad nočitvami v Sloveniji. Glede na prvotni graf potovanj pa ni presenetljivo, da je število potovanj na prebivalca večje v Sloveniji in sicer je razlika skoraj 5 potovanj na prebivalca (na leto), kar je zelo veliko.
 
 ```{r grafi_nocitve_podrobno, echo=FALSE, fig.align='center', warning=FALSE}
+#podrobni grafi nočitev za obe državi
 print(graf5)
 print(graf5a)
 print(graf6)
@@ -98,6 +105,7 @@ print(graf6a)
 Iz zgornjih grafov vidimo, da večina gostov, ki nočuje v Sloveniji in na Hrvaškem prebiva v hotelih in podobnih prebivališčih, manj pa v kampih. Prav tako vidimo, da veliko večino gostov predstavljajo Evropejci. V Sloveniji je glede na podatke največ slovenskih turistov, ki jim sledijo Italijani, Avstrijci in Nemci, medtem ko je na Hrvaškem daleč največ Nemcov, ki jim sledijo Slovenci (v kampih), Hrvati in Avstrijci.
 
 ```{r grafi_potovanja_podrobno, echo=FALSE, fig.align='center', warning=FALSE}
+#podrobni grafi potovanj za obe državi
 print(graf7)
 print(graf8)
 ```
@@ -107,6 +115,7 @@ V zadnji kategoriji grafov vidimo podatke o potovanjih, njihovem namenu in dolž
 Na podlagi podatkov sem analiziral, kaj lahko pričakujemo za prihodnost:
 
 ```{r grafi_napovedi, echo=FALSE, fig.align='center', warning=FALSE}
+#grafi napovedi nočitev in potovanj v obeh državah
 print(graf9)
 print(graf10)
 ```
@@ -116,13 +125,17 @@ Iz zgornjih grafov za prihodnost je razvidno, da bo število nočitev na Hrvašk
 Na spodnjem zemljevidu sem prikazal število nočitev v posameznih občinah v letu 2018, kjer siva barva predstavlja manjkajoče podatke:
 
 ```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zemljevid nočitev'}
+#zemljevid nočitev po slovenskih občinah v letu 2018
 ggplot() + geom_polygon(data=left_join(zemljevid, obcine, by=c("OB_UIME"="obcina")),
                         aes(x=long, y=lat, group=group, fill=stevilo.nocitev)) +
   ggtitle("Število nočitev po slovenskih občinah") + xlab("") + ylab("") +
   guides(fill=guide_colorbar(title="Število nočitev")) + theme_void()
 ```
-***
+
+Opazimo, da je največ nočitev v Ljubljani ter še nekaterih večjih slovenskih mestih. Veliko nočitev je tudi pričakovano v turističnih krajih ob morju (Piran, koper) in na Gorenjskem (Bled). V manjših slovenskih občinah je večinoma zelo malo nočitev, vendar pa je tudi nekaj takšnih, ki so zaradi ponudbe (zdravilišča, terme, kulturna dediščina, razni dogodki) dobro obiskane in posledično beležijo tudi več nočitev. Podatki o številu nočitev v posameznih občinah so predstavljeni tudi v spodnji tabeli:
 
 ```{r shiny, echo=FALSE}
+#tabela nočitev po slovenskih občinah v programu Shiny
 shinyAppDir("shiny", options=list(width="100%", height=600))
 ```
+***
