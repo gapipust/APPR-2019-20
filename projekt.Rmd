@@ -113,12 +113,16 @@ print(graf10)
 
 Iz zgornjih grafov za prihodnost je razvidno, da bo število nočitev na Hrvaškem raslo veliko hitreje kot v Sloveniji, zato bo med državama nastajal vedno večji razkorak v tej kategoriji. Glede potovanj pa je situacija ravno obratna, saj je graf Slovenije veliko strmejši od grafa Hrvaške in kljub manjšemu številu prebivalcev lahko v bližnji prihodnosti pričakujemo, da bomo Slovenci dosegli celo večje število potovanj od Hrvatov.
 
-Na spodnjem zemljevidu sem prikazal število nočitev v posameznih občinah v letu 2018:
+Na spodnjem zemljevidu sem prikazal število nočitev v posameznih občinah v letu 2018, kjer siva barva predstavlja manjkajoče podatke:
 
 ```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zemljevid nočitev'}
 ggplot() + geom_polygon(data=left_join(zemljevid, obcine, by=c("OB_UIME"="obcina")),
                         aes(x=long, y=lat, group=group, fill=stevilo.nocitev)) +
   ggtitle("Število nočitev po slovenskih občinah") + xlab("") + ylab("") +
-  guides(fill=guide_colorbar(title="Število nočitev"))
+  guides(fill=guide_colorbar(title="Število nočitev")) + theme_void()
 ```
 ***
+
+```{r shiny, echo=FALSE}
+shinyAppDir("shiny", options=list(width="100%", height=600))
+```
