@@ -1,7 +1,5 @@
 # 3. faza: Vizualizacija podatkov
 
-source("uvoz/projekt_uvoz.r")
-
 # Uvozimo zemljevid.
 zemljevid <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip", "OB", pot.zemljevida="OB", encoding="Windows-1250")
 levels(zemljevid$OB_UIME) <- levels(zemljevid$OB_UIME) %>% { gsub("-", " - ", .) }

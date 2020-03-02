@@ -132,10 +132,11 @@ ggplot() + geom_polygon(data=left_join(zemljevid, obcine, by=c("OB_UIME"="obcina
   guides(fill=guide_colorbar(title="Število nočitev")) + theme_void()
 ```
 
-Opazimo, da je največ nočitev v Ljubljani ter še nekaterih večjih slovenskih mestih. Veliko nočitev je tudi pričakovano v turističnih krajih ob morju (Piran, koper) in na Gorenjskem (Bled). V manjših slovenskih občinah je večinoma zelo malo nočitev, vendar pa je tudi nekaj takšnih, ki so zaradi ponudbe (zdravilišča, terme, kulturna dediščina, razni dogodki) dobro obiskane in posledično beležijo tudi več nočitev. Podatki o številu nočitev v posameznih občinah so predstavljeni tudi v spodnji tabeli:
+Opazimo, da je največ nočitev v Ljubljani ter še nekaterih večjih slovenskih mestih. Veliko nočitev je tudi pričakovano v turističnih krajih ob morju (Piran, Koper) in na Gorenjskem (Bled). V manjših slovenskih občinah je večinoma zelo malo nočitev, vendar pa je tudi nekaj takšnih, ki so zaradi ponudbe (zdravilišča, terme, kulturna dediščina, razni dogodki) dobro obiskane in posledično beležijo tudi več nočitev. Podatki o številu nočitev v posameznih občinah so predstavljeni tudi v spodnji tabeli:
 
 ```{r shiny, echo=FALSE}
 #tabela nočitev po slovenskih občinah v programu Shiny
 shinyAppDir("shiny", options=list(width="100%", height=600))
 ```
+
 ***

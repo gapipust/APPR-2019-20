@@ -1,7 +1,5 @@
 #2. faza: uvoz podatkov:
 
-source("lib/libraries.r", encoding="UTF-8")
-
 #uvozimo nočitve
 uvozi.nocitve <- function() {
   podatki_o_nocitvah <- read_csv('podatki/tour_occ_ninraw_1_Data.csv',col_names=c('leto', 'izvor_turistov', 'enote', 'prebivalisce', 'drzava', 'vrednost', 'zastava'),
@@ -60,9 +58,11 @@ uvozi.obcine <- function() {
 }
 
 obcine <- uvozi.obcine()
+
+#popravimo imena, ki se razlikujejo:
 obcine$obcina[obcine$obcina == "0 Mežica"] <- "Mežica"
 obcine$obcina[obcine$obcina == "Ankaran/Ancarano"] <- "Ankaran"
-obcine$obcina[obcine$obcina == "	Dobrovnik/Dobronak"] <- "Dobrovnik"
+obcine$obcina[obcine$obcina == "Dobrovnik/Dobronak"] <- "Dobrovnik"
 obcine$obcina[obcine$obcina == "Hodoš/Hodos"] <- "Hodoš"
 obcine$obcina[obcine$obcina == "Izola/Isola"] <- "Izola"
 obcine$obcina[obcine$obcina == "Koper/Capodistria"] <- "Koper"
@@ -72,14 +72,4 @@ obcine$obcina[obcine$obcina == "Sveta Trojica v Slov. goricah"] <- "Sveta Trojic
 obcine$obcina[obcine$obcina == "Sveti Andraž v Slov. goricah"] <- "Sveti Andraž v Slovenskih goricah"
 obcine$obcina[obcine$obcina == "Sveti Jurij v Slov. goricah"] <- "Sveti Jurij v Slovenskih goricah"
 obcine$obcina[obcine$obcina == "0 Mežica"] <- "Mežica"
-
-#primerjava imen občin na zemljevidu in v tabeli
-#obcine_zem <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip", "OB", pot.zemljevida="OB", encoding="Windows-1250");
-#names(obcine_zem)
-#primerjava <- data.frame(obcina.obcine=sort(unique(obcine$obcina)), obcina.zemljevid=sort(levels(obcine_zem$OB_UIME)), stringsAsFactors=FALSE)
-#razlicne <- primerjava %>% filter(obcina.obcine != obcina.zemljevid)
-
-#popravimo imena, ki se razlikujejo:
-#obcine <- obcine %>% inner_join(primerjava, by=c("obcina"="obcina.obcine")) %>% 
-#  mutate(obcina=factor(obcina.zemljevid)) %>% 
-#  select(-obcina.zemljevid)
+obcine$obcina <- factor(obcine$obcina)

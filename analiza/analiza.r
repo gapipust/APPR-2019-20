@@ -1,7 +1,5 @@
 # 4. faza: Analiza podatkov
 
-source("vizualizacija/projekt_vizualizacija.r")
-
 #osnovni grafi
 graf1 <- ggplot(vse_nocitve, aes(x=leto)) + geom_point(aes(y=stevilo_slo, colour="Slovenija")) +  geom_line(aes(y=stevilo_slo, colour="Slovenija")) + 
   geom_point(aes(y=stevilo_hrv, colour="Hrvaška")) + geom_line(aes(y=stevilo_hrv, colour="Hrvaška")) + 
