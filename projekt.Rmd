@@ -112,7 +112,7 @@ print(graf8)
 
 V zadnji kategoriji grafov vidimo podatke o potovanjih, njihovem namenu in dolžini v posamezni državi. Slovenci največkrat potujejo za 1 noč in sicer iz osebnih razlogov, sledijo potovanja od 1 do 3 noči, nato pa 4 noči ali več, oboje iz osebnih razlogov. Najmanj je pričakovano daljših poslovnih potovanj. Poslovna potovanja se skozi leta tudi manj spreminjajo kot osebna, ki bolj nihajo. na Hrvaškem je sestava potovanj praktično enaka, je pa zanimivo, da je v letu 2015 število osebnih daljših potovanj preseglo število osebnih potovanj z dolžino od 1 do 3 noči.
 
-Na podlagi podatkov sem analiziral, kaj lahko pričakujemo za prihodnost:
+Na podlagi podatkov sem analiziral, kaj lahko pričakujemo za prihodnost. Dejanski podatki so do vključno leta 2018 (razen v primeru nočitev v Sloveniji, saj ta podatek manjka, zato sem ga napovedal, dejanski podatki pa so do vključno leta 2017), ostalo pa so napovedi:
 
 ```{r grafi_napovedi, echo=FALSE, fig.align='center', warning=FALSE}
 #grafi napovedi nočitev in potovanj v obeh državah

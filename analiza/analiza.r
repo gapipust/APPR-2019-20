@@ -3,11 +3,13 @@
 #osnovni grafi
 graf1 <- ggplot(vse_nocitve, aes(x=leto)) + geom_point(aes(y=stevilo_slo, colour="Slovenija")) +  geom_line(aes(y=stevilo_slo, colour="Slovenija")) + 
   geom_point(aes(y=stevilo_hrv, colour="Hrvaška")) + geom_line(aes(y=stevilo_hrv, colour="Hrvaška")) + 
-  scale_colour_manual("", values = c("Slovenija" = "blue", "Hrvaška" = "red")) + ylab('število nocitev') + ggtitle('Vse nočitve')
+  scale_colour_manual("", values = c("Slovenija" = "blue", "Hrvaška" = "red")) + ylab('število nocitev') + ggtitle('Vse nočitve') +
+  scale_y_continuous(labels=comma_format(big.mark=""))
 
 graf2 <- ggplot(vsa_potovanja, aes(x=leto)) + geom_point(aes(y=stevilo_slo, colour="Slovenija")) + geom_line(aes(y=stevilo_slo, colour="Slovenija")) + 
   geom_point(aes(y=stevilo_hrv, colour="Hrvaška")) + geom_line(aes(y=stevilo_hrv, colour="Hrvaška")) + 
-  scale_colour_manual("", values = c("Slovenija" = "blue", "Hrvaška" = "red")) + ylab('število potovanj') + ggtitle('Vsa potovanja')
+  scale_colour_manual("", values = c("Slovenija" = "blue", "Hrvaška" = "red")) + ylab('število potovanj') + ggtitle('Vsa potovanja') +
+  scale_y_continuous(labels=comma_format(big.mark=""))
 
 graf3 <- ggplot(vse_nocitve_na_povrsino, aes(x=leto)) + geom_point(aes(y=stevilo_slo, colour="Slovenija")) + geom_line(aes(y=stevilo_slo, colour="Slovenija")) + 
   geom_point(aes(y=stevilo_hrv, colour="Hrvaška")) + geom_line(aes(y=stevilo_hrv, colour="Hrvaška")) + 
@@ -20,22 +22,28 @@ graf4 <- ggplot(vsa_potovanja_na_prebivalce, aes(x=leto)) + geom_point(aes(y=ste
 
 #podrobnejši grafi
 graf5 <- ggplot(slo_nocitve, aes(x=leto)) + aes(y=vrednost, color=izvor_turistov, shape=prebivalisce) + geom_point() + geom_line() + 
-  ggtitle('Sestava turistov v Sloveniji') + ylab('število turistov') + theme(legend.position="bottom", legend.box = "vertical")
+  ggtitle('Sestava turistov v Sloveniji') + ylab('število turistov') + theme(legend.position="bottom", legend.box = "vertical") +
+  scale_y_continuous(labels=comma_format(big.mark=""))
 
 graf5a <- ggplot(slo_nocitve_brez, aes(x=leto)) + aes(y=vrednost, color=izvor_turistov, shape=prebivalisce) + geom_point() + geom_line() + 
-  ggtitle('Sestava turistov v Sloveniji (brez vseh držav in brez Evrope)') + ylab('število turistov') + theme(legend.position="bottom", legend.box = "vertical")
+  ggtitle('Sestava turistov v Sloveniji (brez vseh držav in brez Evrope)') + ylab('število turistov') + theme(legend.position="bottom", legend.box = "vertical") +
+  scale_y_continuous(labels=comma_format(big.mark=""))
 
 graf6 <- ggplot(hrv_nocitve, aes(x=leto)) + aes(y=vrednost, color=izvor_turistov, shape=prebivalisce) + geom_point() + geom_line() + 
-  ggtitle('Sestava turistov na Hrvaškem') + ylab('število turistov') + theme(legend.position="bottom", legend.box = "vertical")
+  ggtitle('Sestava turistov na Hrvaškem') + ylab('število turistov') + theme(legend.position="bottom", legend.box = "vertical") +
+  scale_y_continuous(labels=comma_format(big.mark=""))
 
 graf6a <- ggplot(hrv_nocitve_brez, aes(x=leto)) + aes(y=vrednost, color=izvor_turistov, shape=prebivalisce) + geom_point() + geom_line() + 
-  ggtitle('Sestava turistov na Hrvaškem (brez vseh držav in brez Evrope)') + ylab('število turistov') + theme(legend.position="bottom", legend.box = "vertical")
+  ggtitle('Sestava turistov na Hrvaškem (brez vseh držav in brez Evrope)') + ylab('število turistov') + theme(legend.position="bottom", legend.box = "vertical") +
+  scale_y_continuous(labels=comma_format(big.mark=""))
 
 graf7 <- ggplot(slo_potovanja_vse_drzave, aes(x=leto)) + aes(y=vrednost, color=dolzina, shape=namen) + geom_point() + geom_line() + 
-  ggtitle('Dolžina in namen potovanja Slovencev') + ylab('število turistov') + theme(legend.position="bottom", legend.box = "vertical")
+  ggtitle('Dolžina in namen potovanja Slovencev') + ylab('število turistov') + theme(legend.position="bottom", legend.box = "vertical") +
+  scale_y_continuous(labels=comma_format(big.mark=""))
 
 graf8 <- ggplot(hrv_potovanja_vse_drzave, aes(x=leto)) + aes(y=vrednost, color=dolzina, shape=namen) + geom_point() + geom_line() + 
-  ggtitle('Dolžina in namen potovanja Hrvatov') + ylab('število turistov') + theme(legend.position="bottom", legend.box = "vertical")
+  ggtitle('Dolžina in namen potovanja Hrvatov') + ylab('število turistov') + theme(legend.position="bottom", legend.box = "vertical") +
+  scale_y_continuous(labels=comma_format(big.mark=""))
 
 
 #napredna analiza in grafi napovedi
@@ -62,7 +70,7 @@ vse_nocitve_pr <- vse_nocitve_pr %>% filter(leto != 2010, leto != 2011, leto != 
 graf9 <- ggplot(vse_nocitve_pr, aes(x=leto)) + geom_point(aes(y=stevilo_slo, colour="Slovenija")) + geom_line(aes(y=stevilo_slo, colour="Slovenija")) + 
   geom_point(aes(y=stevilo_hrv, colour="Hrvaška")) + geom_line(aes(y=stevilo_hrv, colour="Hrvaška")) + 
   scale_colour_manual("", values = c("Slovenija" = "blue", "Hrvaška" = "red")) + ylab('predvideno število nocitev v prihodnosti') + 
-  ggtitle('Napoved vseh nočitev za prihodnost') + scale_x_continuous(breaks = 1*2016:2025)
+  ggtitle('Napoved vseh nočitev za prihodnost') + scale_x_continuous(breaks = 1*2016:2025) + scale_y_continuous(labels=comma_format(big.mark=""))
 
 vsa_slo_potovanja_pr <- vsa_slo_potovanja
 lin2 <- lm(data=vsa_slo_potovanja_pr, stevilo ~ leto)
@@ -87,4 +95,4 @@ vsa_potovanja_pr <- vsa_potovanja_pr %>% filter(leto != 2010, leto != 2011, leto
 graf10 <- ggplot(vsa_potovanja_pr, aes(x=leto)) + geom_point(aes(y=stevilo_slo, colour="Slovenija")) +  geom_line(aes(y=stevilo_slo, colour="Slovenija")) + 
   geom_point(aes(y=stevilo_hrv, colour="Hrvaška")) + geom_line(aes(y=stevilo_hrv, colour="Hrvaška")) + 
   scale_colour_manual("", values = c("Slovenija" = "blue", "Hrvaška" = "red")) + ylab('predvideno število potovanj v prihodnosti') + 
-  ggtitle('Napoved vseh potovanj za prihodnost') + scale_x_continuous(breaks = 1*2016:2025)
+  ggtitle('Napoved vseh potovanj za prihodnost') + scale_x_continuous(breaks = 1*2016:2025) + scale_y_continuous(labels=comma_format(big.mark=""))

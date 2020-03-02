@@ -8,6 +8,7 @@ library(dplyr)
 library(ggplot2)
 library(GGally)
 library(mgcv)
+library(scales)
 
 options(gsubfn.engine="R")
 
